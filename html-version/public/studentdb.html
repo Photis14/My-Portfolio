@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Site description" />
+    <meta name="keywords" content="your, keywords" />
+    <meta name="author" content="Author" />
+
+    <meta property="og:description" content="your site description" />
+    <meta property="og:url" content="https://example.com" />
+    <meta property="og:site_name" content="Site name" />
+    <meta property="og:image" content="logo" />
+
+    <!--meta twitter-->
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:image" content="logo" />
+    <meta property="twitter:title" content="Site name" />
+    <meta property="twitter:description" content="your site description" />
+    <!-- end meta twitter-->
+
+    <title>Student Database GUI</title>
+
+    <!-- Watch css, run "npm run watch" to watch the class change -->
+    <link rel="stylesheet" href="./assets/base/tailwindcss/output.css" />
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/base/styles.css">
+    <!-- Font Style -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+
+    <!-- Minify CSS, make sure you run "npm run watch" and then 
+        "npm run minify" to generate new minify data if there is a change 
+    -->
+    <!-- <link rel="stylesheet" href="./assets/base/tailwindcss/output.min.css"> -->
+</head>
+
+
+
+
+
+
+
+
+<body class="mx-auto flex h-auto w-full flex-col flex-wrap justify-center overflow-x-hidden scroll-smooth bg-primary">
+<!-- Navbar -->
+<nav id="nav" class="translate-y-auto sticky top-0 z-40 h-max w-full flex-1 justify-center bg-primary p-6 transition duration-500 lg:p-4">
+    <div class="mx-auto max-w-6xl flex-col flex-wrap items-center justify-between text-primary">
+        <div class="flex flex-1 flex-wrap items-center font-open-sans">
+            <!-- Nav Title -->
+            <button id="navLogo" type="button" class="z-50 inline-flex flex-1 gap-2 text-xl font-bold">
+                <div class="before:text-secondary before:content-['<'] after:text-secondary after:content-['/>']">John Photis</div>
+            </button>
+            <!-- End Nav Title -->
+
+            <!-- Nav Menu -->
+            <div id="navMove" class="invisible fixed inset-0 z-40 flex-none basis-full translate-x-full bg-primary text-lg transition duration-500 lg:visible lg:relative lg:top-0 lg:basis-auto lg:translate-x-0 lg:transition-none">
+                <div class="flex h-full flex-col flex-nowrap items-center justify-center space-x-0 space-y-8 p-6 lg:flex lg:flex-row lg:justify-end lg:space-x-14 lg:space-y-0 lg:p-0">
+                    
+                    <!-- Home Button -->
+                    <a href="index.html" class="text-xl hover:text-secondary lg:text-base">
+                        Home
+                    </a>
+                    
+                    <!-- About Me Button -->
+                    <a href="index.html#sectionAbout" class="text-xl hover:text-secondary lg:text-base">
+                        About Me
+                    </a>
+                    
+                    <!-- My Projects Button -->
+                    <a href="index.html#projects-section" class="text-xl hover:text-secondary lg:text-base">
+                        My Projects
+                    </a>
+                    
+                    <!-- Contact Button -->
+                    <a href="index.html#sectionContact" class="group inline-flex items-center gap-3 rounded-full border-2 border-primary px-8 py-4 hover:border-transparent hover:bg-senary hover:font-semibold hover:text-senary">
+                        GET IN TOUCH
+                        <!-- Arrow top left -->
+                        <svg class="h-6 w-6 fill-primary group-hover:fill-tertiary" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M5 17.59L15.59 7H9V5h10v10h-2V8.41L6.41 19L5 17.59Z" />
+                        </svg>
+                        <!-- End Arrow Top Left -->
+                    </a>
+                </div>
+            </div>
+            <!-- End Nav Menu -->
+
+            <!-- Nav Icon -->
+            <div class="z-50 flex-none">
+                <div class="flex justify-end lg:hidden">
+                    <button id="navButton" class="flex h-12 w-12 items-center justify-center rounded-full border-2 border-primary">
+                        <!-- Open Icon -->
+                        <svg class="navMenuIcon block w-8 fill-primary" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M4 18q-.425 0-.712-.288Q3 17.425 3 17t.288-.712Q3.575 16 4 16h16q.425 0 .712-.288q.288.287.288.712t-.288.712Q20.425 18 20 18Zm0-5q-.425 0-.712-.288Q3 12.425 3 12t.288-.713Q3.575 11 4 11h16q.425 0 .712.287q.288.288.288.713t-.288.712Q20.425 13 20 13Zm0-5q-.425 0-.712-.287Q3 7.425 3 7t.288-.713Q3.575 6 4 6h16q.425 0 .712.287Q21 6.575 21 7t-.288.713Q20.425 8 20 8Z" />
+                        </svg>
+                        <!-- End Open Icon -->
+
+                        <!-- Close Icon -->
+                        <svg class="navMenuIcon hidden w-8 fill-primary" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="m12 13.4l-4.9 4.9q-.275.275-.7.275q-.425 0-.712-.288q-.287-.288-.287-.713q0-.425.287-.7l4.9-4.9l-4.9-4.9q-.288-.287-.288-.7q0-.425.287-.712q.288-.288 .713-.288q.425 0 .7 .287l4.9 4.9l4.9-4.9q.275-.287.7-.287q.425 0 .712.288q.288.288 .288 .713q0 .425-.288 .7l-4.9 4.9l4.9 4.9q.288 .275 .288 .7q0 .425-.288 .713q-.288.288-.713.288q-.425 0-.7-.288l-4.9-4.9Z" />
+                        </svg>
+                        <!-- End Close Icon -->
+                    </button>
+                </div>
+            </div>
+            <!-- End Nav Icon -->
+        </div>
+    </div>
+</nav>
+<!-- End Navbar -->
+
+
+    <main class="my-12 h-full w-full flex-1 overflow-hidden">
+        
+    
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Section Two -->
+<section id="sectionAbout"
+class="mx-auto h-auto px-6 py-12 text-primary sm:max-w-4xl sm:py-24 md:max-w-4xl lg:max-w-6xl lg:px-12">
+<div class="flex flex-col space-y-12">
+
+    <!-- What is Full Stack Title -->
+    <h2 class="font-poppins text-4xl md:text-5xl mb-4">What is a GUI?</h2>
+
+    <!-- Full Stack Description -->
+    <p class="font-open-sans text-xl leading-loose text-tertiary mb-6">
+        A GUI (Graphical User Interface) is a visual interface that allows users to interact with a computer or software through graphical elements like windows, buttons, icons, and menus, making it easier to perform tasks by clicking and dragging instead of using text-based commands.
+    </p>
+
+    <!-- Tools & Frameworks -->
+    <h2 class="font-poppins text-4xl md:text-5xl mb-6">Tools & Frameworks Used</h2>
+    <ul class="list-disc pl-6 mb-6 space-y-8">
+        <li><span class="bg-pink-500 text-primary rounded-full px-4 py-2">Python</span> - A friendly versatile computer language for web development and data analysis.</li>
+        <li><span class="bg-pink-500 text-primary rounded-full px-4 py-2">Tkinter</span> - Tkinter is a Python library for building desktop application user interfaces.</li>
+        <li><span class="bg-pink-500 text-primary rounded-full px-4 py-2">Turtle</span> - Turtle is a Python library for creating simple graphics and drawings using a turtle-like cursor that you can control with code.</li>
+        <!-- Add more tools/frameworks as needed -->
+    </ul>
+
+    <!-- Project Title -->
+    <h2 class="font-poppins text-3xl md:text-4xl mb-4">Student Database GUI</h2>
+
+
+    <!-- Project Description with Image -->
+    <div class="flex flex-wrap gap-6">
+        <div class="flex-1">
+            <p class="break-words font-open-sans text-xl leading-loose text-tertiary mb-4">
+                This Python code uses the Tkinter library to create a graphical user interface (GUI) for managing a student database. It provides functionality to add, update, and delete student records, as well as filter and sort the data. The program reads and writes student information from/to a text file named "Student_Database.txt" and displays it in a tabular format using the ttk.Treeview widget. Users can perform various operations on the student data, such as adding, updating, and deleting records, as well as filtering by GPA and date of birth (DOB). The GUI is divided into sections for different operations, and buttons and input fields are provided for user interaction.
+            </p>
+            <a href="https://github.com/Photis14/Student-Database-GUI" target="_blank" rel="noopener noreferrer">
+                <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-8 rounded-full">
+                    View on GitHub
+                </button>
+            </a>
+        </div>
+        <div class="flex-1">
+            <img src="./assets/img/StudentDatabase.png" alt="Student Database GUI Image" class="rounded shadow-lg mb-4">
+        </div>
+    </div>
+</div>
+</section>    
+        
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <footer class="relative mx-auto my-20 h-full w-full">
+        <div class="flex justify-center">
+            <span class="font-open-sans text-xl text-primary text-quaternary before:content-['©']">
+                John Photis 2023
+            </span>
+        </div>
+    </footer>
+    <!-- End Footer -->
+</body>
+
+<!-- Custom Javascript -->
+<script src="./assets/custom/js/script.js"></script>
+
+<script>
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+</script>
+
+
+</html>

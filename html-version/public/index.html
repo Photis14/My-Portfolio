@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Site description" />
+    <meta name="keywords" content="your, keywords" />
+    <meta name="author" content="Author" />
+
+    <meta property="og:description" content="your site description" />
+    <meta property="og:url" content="https://example.com" />
+    <meta property="og:site_name" content="Site name" />
+    <meta property="og:image" content="logo" />
+
+    <!--meta twitter-->
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:image" content="logo" />
+    <meta property="twitter:title" content="Site name" />
+    <meta property="twitter:description" content="your site description" />
+    <!-- end meta twitter-->
+
+    <title>Website Portfolio</title>
+
+    <!-- Watch css, run "npm run watch" to watch the class change -->
+    <link rel="stylesheet" href="./assets/base/tailwindcss/output.css" />
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/base/styles.css">
+    <!-- Font Style -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+
+    <!-- Minify CSS, make sure you run "npm run watch" and then 
+        "npm run minify" to generate new minify data if there is a change 
+    -->
+    <!-- <link rel="stylesheet" href="./assets/base/tailwindcss/output.min.css"> -->
+</head>
+
+<body class="mx-auto flex h-auto w-full flex-col flex-wrap justify-center overflow-x-hidden scroll-smooth bg-primary">
+<!-- Navbar -->
+<nav id="nav"
+    class="translate-y-auto sticky top-0 z-40 h-max w-full flex-1 justify-center bg-primary p-6 transition duration-500 lg:p-4">
+    <div class="mx-auto max-w-6xl flex-col flex-wrap items-center justify-between text-primary">
+        <div class="flex flex-1 flex-wrap items-center font-open-sans">
+            <!-- Nav Title -->
+            <button id="navLogo" type="button" class="z-50 inline-flex flex-1 gap-2 text-xl font-bold">
+                <div class="before:text-secondary before:content-['<'] after:text-secondary after:content-['/>']">
+                    John Photis
+                </div>
+            </button>
+            <!-- End Nav Title -->
+
+            <!-- Nav Menu -->
+            <div id="navMove"
+                class="invisible fixed inset-0 z-40 flex-none basis-full translate-x-full bg-primary text-lg transition duration-500 lg:visible lg:relative lg:top-0 lg:basis-auto lg:translate-x-0 lg:transition-none">
+                <div
+                    class="flex h-full flex-col flex-nowrap items-center justify-center space-x-0 space-y-8 p-6 lg:flex lg:flex-row lg:justify-end lg:space-x-14 lg:space-y-0 lg:p-0">
+                    
+                     <!-- Home Button -->
+                     <button id="navMenuPortfolio" class="text-xl hover:text-secondary lg:text-base" data-scroll onclick="scrollToTop();">
+                        Home
+                    </button>
+                    
+                    <button class="navMenuAbout text-xl hover:text-secondary lg:text-base" data-scroll>
+                        About Me
+                    </button>
+                    
+                    <button id="navMenuPortfolio" class="text-xl hover:text-secondary lg:text-base" data-scroll onclick="document.querySelector('#projects-section').scrollIntoView({ behavior: 'smooth' });">
+                        My Projects
+                    </button>
+                    
+                    <button id="navMenuContact"
+                        class="group inline-flex items-center gap-3 rounded-full border-2 border-primary px-8 py-4 hover:border-transparent hover:bg-senary hover:font-semibold hover:text-senary">
+                        GET IN TOUCH
+                        <!-- Arrow top left -->
+                        <svg class="h-6 w-6 fill-primary group-hover:fill-tertiary" fill="none"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M5 17.59L15.59 7H9V5h10v10h-2V8.41L6.41 19L5 17.59Z" />
+                        </svg>
+                        <!-- End Arror Top Left -->
+                    </button>
+                </div>
+            </div>
+            <!-- End Nav Menu -->
+
+            <!-- Nav Icon -->
+            <div class="z-50 flex-none">
+                <div class="flex justify-end lg:hidden">
+                    <button id="navButton"
+                        class="flex h-12 w-12 items-center justify-center rounded-full border-2 border-primary">
+                        <!-- Open Icon -->
+                        <svg class="navMenuIcon block w-8 fill-primary" fill="none"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path
+                                d="M4 18q-.425 0-.712-.288Q3 17.425 3 17t.288-.712Q3.575 16 4 16h16q.425 0 .712-.288q.288.287.288.712t-.288.712Q20.425 18 20 18Zm0-5q-.425 0-.712-.288Q3 12.425 3 12t.288-.713Q3.575 11 4 11h16q.425 0 .712.287q.288.288.288.713t-.288.712Q20.425 13 20 13Zm0-5q-.425 0-.712-.287Q3 7.425 3 7t.288-.713Q3.575 6 4 6h16q.425 0 .712.287Q21 6.575 21 7t-.288.713Q20.425 8 20 8Z" />
+                        </svg>
+                        <!-- End Open Icon -->
+
+                        <!-- Close Icon -->
+                        <svg class="navMenuIcon hidden w-8 fill-primary" fill="none"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path
+                                d="m12 13.4l-4.9 4.9q-.275.275-.7.275q-.425 0-.712-.288q-.287-.288-.287-.713q0-.425.287-.7l4.9-4.9l-4.9-4.9q-.288-.287-.288-.7q0-.425.287-.712q.288-.288 .713-.288q.425 0 .7 .287l4.9 4.9l4.9-4.9q.275-.287.7-.287q.425 0 .712.288q.288.288 .288.713q0 .425-.288 .7l-4.9 4.9l4.9 4.9q.288.275 .288 .7q0 .425-.288 .712q-.288.288-.713.288q-.425 0-.7-.287z" />
+                        </svg>
+                        <!-- End Close Icon -->
+                    </button>
+                </div>
+            </div>
+            <!-- End Nav Icon -->
+        </div>
+    </div>
+</nav>
+<!-- End Navbar -->
+
+
+    <main class="my-12 h-full w-full flex-1 overflow-hidden">
+        
+        
+        
+        <!-- Section One -->
+        <section class="mx-auto h-auto px-3 pt-20 text-primary sm:max-w-4xl md:max-w-4xl md:px-6 lg:max-w-5xl lg:pt-3 mb-10">
+            <div class="flex flex-col items-center gap-6 font-poppins font-semibold sm:gap-3">
+            <div type="button" id="homeSection" class="inline-flex flex-wrap justify-center gap-3 text-center text-5xl sm:text-6xl">
+            <div class="inline-flex after:text-secondary after:content-[',']">
+                Hi
+            </div>
+            I'm
+            <span class="before:text-secondary before:content-['.']">
+                John
+            </span>
+            </div>
+                <div class="inline-flex flex-wrap justify-center text-2xl sm:text-4xl">
+                    A Software
+                    <div class="text-secondary">-</div>
+                    Engineer
+                </div>
+                <div class="relative flex-none">
+                    <!-- Hero Image -->
+                    <div class="z-10 flex">
+                        <img class="overflow-hidden object-cover object-top sm:h-[500px] sm:w-[500px]"
+                            src="./assets/img/hero/person.png" alt="Peter LIoyd" />
+                        <!-- Scroll Down Button -->
+
+                        <!-- Just remove the "hidden" show scroll button on other screen size -->
+                        <div class="absolute bottom-12 left-[46%] z-20 hidden sm:bottom-8 sm:left-[45%] lg:block">
+                            <button
+                                class="navMenuAbout inline-flex h-32 w-16 flex-col items-center justify-center gap-2 rounded-full border border-primary/5 bg-white/5 backdrop-blur-sm sm:h-40 sm:w-20">
+                                <svg class="h-5 w-5 fill-tertiary" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 19.575q-.2 0-.375-.063q-.175-.062-.325-.212l-6.6-6.6q-.3-.3-.3-.713q0-.412.3-.712t.7-.3q.4 0 .7.3l4.9 4.9v-11.2q0-.425.288-.7Q11.575 4 12 4t.713.287Q13 4.575 13 5v11.175l4.9-4.9q.3-.3.7-.3q.4 0 .7.3q.3.3.3.712q0 .413-.3.713l-6.6 6.6q-.15.15-.325.212q-.175.063-.375.063Z" />
+                                </svg>
+                                <span class="px-3 font-open-sans text-sm font-semibold text-senary">
+                                    Scroll Down
+                                </span>
+                            </button>
+                        </div>
+                        <!-- End Scroll Down Button -->
+                    </div>
+                    <!-- hero Image -->
+
+                    <!-- Filter Image -->
+                    <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#141416]"></div>
+                    <div class="absolute inset-x-0 bottom-0 h-20 bg-primary/30 blur-lg"></div>
+                    <!-- End Filter Image -->
+                </div>
+            </div>
+        </section>
+        <!-- End Section One -->
+
+        <!-- Section Two -->
+        <section id="sectionAbout"
+            class="mx-auto h-auto px-6 py-28 text-primary sm:max-w-4xl sm:py-40 md:max-w-4xl lg:max-w-6xl lg:px-12 mb-10">
+            <div class="flex flex-col">
+                <div class="mb-12 flex-1 md:mb-0">
+                    <!-- Section Title -->
+                    <div class="inline-flex gap-2 font-open-sans text-6xl font-bold">
+                        <div
+                            class="before:text-secondary before:content-['<'] after:text-secondary after:content-['/>']">
+                            About Me
+                        </div>
+                    </div>
+                    <!-- End Section Title -->
+                </div>
+                <div class="mt-16"></div> <!--Space-->
+               
+               
+               
+                <!-- Profile Detail -->
+<div class="flex-1 space-y-6 md:space-y-0 lg:space-y-12">
+    <div class="flex md:justify-end">
+        <div class="space-y-6 md:basis-11/12 lg:flex-nowrap lg:basis-10/12 lg:space-y-6">
+            <h2 class="font-poppins text-4xl md:text-5xl lg:text-5xl">Welcome to my website portfolio!</h2>
+            <p class="break-words font-open-sans text-xl leading-loose text-tertiary">
+                Hi, my name is John, and I am a Software Engineer. I recently graduated from Suffolk University with a Bachelors of Science (Computer Science).
+                <br /><br />
+                My journey into the world of technology began with a profound fascination for the inner workings of robotics and video games. 
+                I was captivated by the idea of creating these technological marvels from scratch, and it ignited my passion for software engineering.
+                <br /><br />
+                Throughout my academic journey, I've gained practical experience through various projects and internships. 
+                I hold a strong foundation in programming and technical skills, which I've applied to create custom solutions that have made a significant impact. 
+                As a Game/Software Developer, I enhanced player engagement by developing custom game scripts. In my role as a Software Development & Research Intern, I conducted valuable studies and contributed to the success of projects. 
+                I am excited to apply my technical background to make a difference in innovative projects. Let's embark on this journey together!
+            </p>
+        </div>
+    </div>
+</div>
+
+
+                    <div class="mt-16"></div>
+                    <div class="flex-1 space-y-6 md:space-y-0 lg:space-y-12">      
+                        <div class="space-y-6 md:basis-11/12 lg:flex-nowrap lg:basis-10/12 lg:space-y-6">
+                          <h2 class="font-poppins text-5xl md:text-6xl">Technical Skills</h2>
+                          <h3 class="font-poppins text-3xl mt-6">Programming Languages</h3>
+                          <div class="grid grid-cols-3 grid-rows-2 gap-6">
+                            <div class="flex items-center">
+                                <img src="./assets/img/python_icon.png" alt="Python" class="w-12 h-12 mr-4" />
+                                <span>Python</span>
+                              </div>
+                              <div class="flex items-center">
+                                <img src="./assets/img/java_icon.png" alt="Java" class="w-12 h-12 mr-4" />
+                                <span>Java</span>
+                              </div>
+                              <div class="flex items-center">
+                                <img src="./assets/img/C.png" alt="C" class="w-12 h-12 mr-4" />
+                                <span>C</span>
+                              </div>
+                              <div class="flex items-center">
+                                <img src="./assets/img/c+ +.png" alt="C++" class="w-12 h-12 mr-4" />
+                                <span>C++</span>
+                              </div>
+                              <div class="flex items-center">
+                                <img src="./assets/img/c-sharp.png" alt="C#" class="w-12 h-12 mr-4" />
+                                <span>C#</span>
+                              </div>
+                              <div class="flex items-center">
+                                <img src="./assets/img/lua.png" alt="LUA" class="w-12 h-12 mr-4" />
+                                <span>LUA</span>
+                              </div>
+                            </div>
+                    
+                          <h3 class="font-poppins text-3xl mt-6">Frameworks and DBMS</h3>
+                          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+                            <div class="flex items-center">
+                              <img src="./assets/img/dot-net-original-wordmark.1024x979.png" alt=".NET" class="w-12 h-12 mr-4" />
+                              <span>.NET</span>
+                            </div>
+                            <div class="flex items-center">
+                              <img src="./assets/img/Qt.png" alt="Qt" class="w-12 h-12 mr-4" />
+                              <span>Qt</span>
+                            </div>
+                            <div class="flex items-center">
+                              <img src="./assets/img/sql-database-generic.760x1024.png" alt="SQL" class="w-12 h-12 mr-4" />
+                              <span>SQL</span>
+                            </div>
+                            <div class="flex items-center">
+                              <img src="./assets/img/react.1024x911.png" alt="React" class="w-12 h-12 mr-4" />
+                              <span>React</span>
+                            </div>
+                            <div class="flex items-center">
+                              <img src="./assets/img/file-type-django.803x1024.png" alt="Django" class="w-12 h-12 mr-4" />
+                              <span>Django</span>
+                            </div>
+                            <!-- Add more frameworks and DBMS items here -->
+                          </div>
+                    
+                          <h3 class="font-poppins text-3xl mt-6">Software</h3>
+                          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+                            <div class="flex items-center">
+                              <img src="./assets/img/github.1024x979.png" alt="Git" class="w-12 h-12 mr-4" />
+                              <span>Git</span>
+                            </div>
+                            <div class="flex items-center">
+                              <img src="./assets/img/docker-original-wordmark.1024x861.png" alt="Docker" class="w-12 h-12 mr-4" />
+                              <span>Docker</span>
+                            </div>
+                            <div class="flex items-center">
+                              <img src="./assets/img/vs-code.1023x1024.png" alt="VS Code" class="w-12 h-12 mr-4" />
+                              <span>VS Code</span>
+                            </div>
+                            <div class="flex items-center">
+                              <img src="./assets/img/eclipse.1024x959.png" alt="Eclipse" class="w-12 h-12 mr-4" />
+                              <span>Eclipse</span>
+                            </div>
+                            <div class="flex items-center">
+                              <img src="./assets/img/Spyder_logo.svg.png" alt="Spyder" class="w-12 h-12 mr-4" />
+                              <span>Spyder</span>
+                            </div>
+                            <!-- Add more software items here -->
+                          </div>
+                    
+                          <h3 class="font-poppins text-3xl mt-6">Operating Systems</h3>
+                          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+                            <div class="flex items-center">
+                              <img src="./assets/img/windows-legacy.1024x914.png" alt="Windows" class="w-12 h-12 mr-4" />
+                              <span>Windows</span>
+                            </div>
+                            <div class="flex items-center">
+                              <img src="./assets/img/linux.878x1024.png" alt="Linux" class="w-12 h-12 mr-4" />
+                              <span>Linux</span>
+                            </div>
+                            <!-- Add more operating systems items here -->
+                          </div>
+                        </div>
+        <!-- End Section Two -->
+
+<!-- Section Three -->
+<section id="projects-section">
+<section class="projects-section">
+    <div class="container mx-auto px-4">
+        <div class="inline-flex gap-2 font-open-sans text-6xl font-bold mb-10 text-white">
+            <div class="before:text-secondary before:content-['<'] after:text-secondary after:content-['/>']">
+                My Projects
+            </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            
+            <!-- Project 1 Card -->
+            <a href="./fullstack.html" class="project-card-link">
+                <div class="project-card">
+                    <h3 class="text-2xl font-bold mb-4 text-white">Full Stack Police Force Web Application Database</h3>
+                    <p class="text-gray-300">Brief description about Project 1.</p>
+                    <div class="skills">
+                        <span class="skill">Python</span>
+                        <span class="skill">Django</span>
+                        <span class="skill">SQL</span>
+                        <span class="skill">React.js</span>
+                        <span class="skill">HTML/CSS</span>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Project 2 Card -->
+            <a href="./Shellterminal.html" class="project-card-link">
+                <div class="project-card">
+                    <h3 class="text-2xl font-bold mb-4 text-white">Shell/Terminal Replica</h3>
+                    <p class="text-gray-300">Brief description about Project 2.</p>
+                    <div class="skills">
+                        <span class="skill">C</span>
+                        <span class="skill">Git</span>
+                        <span class="skill">Linux Ubuntu</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Project 3 Card -->
+            <a href="./TA.html" class="project-card-link">
+                <div class="project-card">
+                    <h3 class="text-2xl font-bold mb-4 text-white">Tweet Analysis</h3>
+                    <p class="text-gray-300">Brief description about Project 3.</p>
+                    <div class="skills">
+                        <span class="skill">Python</span>
+                        <span class="skill">Pandas</span>
+                        <span class="skill">Pickle</span>
+                        <span class="skill">CSV</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Project 4 Card -->
+            <a href="./Yelp.html" class="project-card-link">
+                <div class="project-card">
+                    <h3 class="text-2xl font-bold mb-4 text-white">Yelp Reviews Sentimetal Analysis</h3>
+                    <p class="text-gray-300">Brief description about Project 4.</p>
+                    <div class="skills">
+                        <span class="skill">Python</span>
+                        <span class="skill">JSON</span>
+                        <span class="skill">NLTK</span>
+                        <span class="skill">CSV</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Project 5 Card -->
+            <a href="./discord.html" class="project-card-link">
+                <div class="project-card">
+                    <h3 class="text-2xl font-bold mb-4 text-white">Discord Bot Ultra</h3>
+                    <p class="text-gray-300">Brief description about Project 5.</p>
+                    <div class="skills">
+                        <span class="skill">JavaScript</span>
+                        <span class="skill">Node.js</span>
+                        <span class="skill">Discord.js </span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Project 6 Card -->
+            <a href="./studentdb.html" class="project-card-link">
+                <div class="project-card">
+                    <h3 class="text-2xl font-bold mb-4 text-white">Student Database GUI</h3>
+                    <p class="text-gray-300">Brief description about Project 6.</p>
+                    <div class="skills">
+                        <span class="skill">Python</span>
+                        <span class="skill">Tkinter </span>
+                        <span class="skill">Turtle </span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Project 7 Card -->
+            <a href="./studentmanage.html" class="project-card-link">
+                <div class="project-card">
+                    <h3 class="text-2xl font-bold mb-4 text-white">Student Management System</h3>
+                    <p class="text-gray-300">Brief description about Project 7.</p>
+                    <div class="skills">
+                        <span class="skill">Python</span>
+                        <span class="skill">Tkinter </span>
+                        <span class="skill">SQLite3 </span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Project 8 Card -->
+            <a href="./lorenz.html" class="project-card-link">
+                <div class="project-card">
+                    <h3 class="text-2xl font-bold mb-4 text-white">Lorenz Curve</h3>
+                    <p class="text-gray-300">Brief description about Project 8.</p>
+                    <div class="skills">
+                        <span class="skill">Python</span>
+                        <span class="skill">NumPy </span>
+                        <span class="skill">Matplotlib </span>
+                    </div>
+                </div>
+            </a>
+            
+        </div>
+    </div>
+</section>
+<!-- End Section Three -->
+
+
+        <!-- Section Four -->
+        <section id="sectionContact"
+            class="mx-auto h-auto px-6 py-28 text-primary sm:max-w-4xl sm:py-40 md:max-w-4xl lg:max-w-6xl lg:px-12">
+            <div class="flex flex-col">
+                <div class="mb-8 flex-none md:mb-10">
+                    <!-- Section Title -->
+                    <div class="inline-flex gap-2 font-open-sans text-6xl font-bold">
+                        <div
+                            class="before:text-secondary before:content-['<'] after:text-secondary after:content-['/>']">
+                            Contact Me
+                        </div>
+                    </div>
+                    <!-- End Section Title -->
+                </div>
+                <h2 class="mb-8 font-poppins text-4xl font-medium leading-relaxed md:mb-10 md:text-5xl lg:text-6xl">
+                </h2>
+                <p class="break-words font-open-sans text-xl leading-loose text-tertiary">
+                </p>
+            </div>
+            <div class="mt-6 flex flex-col-reverse items-center gap-20 md:flex-row md:gap-12 lg:gap-20">
+                <div class="w-full flex-none md:w-2/5 lg:w-3/5">
+                    
+                    
+                    
+                    
+                    <!-- Social Card -->
+                    <div class="mx-8 grid grid-cols-2 gap-10 md:mx-0">
+                        <!-- Resume Card -->
+    <a href="./assets/img/JohnPhotis_Resume.pdf" target="_blank"
+        class="group col-span-1 rounded-xl bg-quinary py-10 px-6 hover:bg-senary/10 lg:py-12">
+        <div class="flex flex-col gap-8">
+            <div
+                class="inline-flex h-20 w-20 flex-none items-center justify-center rounded-full bg-quaternary">
+                <!-- Resume Icon -->
+                <svg class="h-10 w-10" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path class="fill-primary group-hover:fill-secondary"
+                        d="M19 2H9C7.897 2 7 2.897 7 4V20C7 21.103 7.897 22 9 22H19C20.103 22 21 21.103 21 20V4C21 2.897 20.103 2 19 2zM9 4H19L19.001 7H9V4ZM9 20V9H19L19.002 20H9z"
+                        fill="none" />
+                    <path class="fill-primary group-hover:fill-secondary"
+                        d="M11 13H14V15H11zM11 10H17V12H11zM11 16H17V18H11z" fill="none" />
+                </svg>
+                <!-- End Resume Icon -->
+            </div>
+            <div class="inline-flex flex-col space-y-3 font-open-sans">
+                <div class="text-xl font-bold text-primary">Resume</div>
+                <div class="break-words text-quaternary">
+                    View My Resume
+                </div>
+            </div>
+        </div>
+    </a>
+    <!-- End Resume Card -->
+                        <!-- Github Card -->
+                        <a href="https://github.com/photis14" target="_blank"
+                        class="group col-span-1 rounded-xl bg-quinary py-10 px-6 hover:bg-senary/10 lg:py-12">
+                            <div class="flex flex-col gap-8">
+                                <div
+                                    class="inline-flex h-20 w-20 flex-none items-center justify-center rounded-full bg-quaternary">
+                                    <!-- Github Icon -->
+                                    <svg class="h-10 w-10" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                                        <path class="fill-primary group-hover:fill-secondary" fill-rule="evenodd"
+                                            clip-rule="evenodd"
+                                            d="M20.0005 0.833374C15.2525 0.835837 10.6603 2.51747 7.04482 5.57758C3.42939 8.63769 1.02655 12.8767 0.265948 17.5367C-0.49465 22.1967 0.436585 26.9737 2.89316 31.0137C5.34973 35.0536 9.17144 38.093 13.6749 39.5883C14.6685 39.7727 15.0427 39.157 15.0427 38.6334C15.0427 38.1098 15.0228 36.5917 15.0162 34.9321C9.45237 36.134 8.27668 32.5842 8.27668 32.5842C7.36925 30.2791 6.05777 29.6732 6.05777 29.6732C4.2429 28.4416 6.19356 28.4647 6.19356 28.4647C8.20383 28.6063 9.2603 30.5162 9.2603 30.5162C11.0421 33.5556 13.9399 32.6764 15.0791 32.1627C15.258 30.8751 15.7779 29.9992 16.3509 29.502C11.9064 29.0014 7.23677 27.2957 7.23677 19.6757C7.20923 17.6996 7.94675 15.7885 9.29673 14.3378C9.09139 13.8373 8.40584 11.8154 9.49211 9.06909C9.49211 9.06909 11.1712 8.53563 14.993 11.1074C18.2712 10.2161 21.7298 10.2161 25.0079 11.1074C28.8264 8.53563 30.5022 9.06909 30.5022 9.06909C31.5918 11.8088 30.9063 13.8307 30.7009 14.3378C32.0552 15.7887 32.7942 17.7031 32.7642 19.6823C32.7642 27.3187 28.0846 29.0014 23.6335 29.4921C24.3489 30.1112 24.9881 31.3197 24.9881 33.1769C24.9881 35.8376 24.9649 37.9781 24.9649 38.6334C24.9649 39.1635 25.3259 39.7826 26.3393 39.5883C30.8433 38.0928 34.6654 35.0529 37.1219 31.0123C39.5784 26.9716 40.5092 22.1939 39.7477 17.5335C38.9863 12.873 36.5822 8.63397 32.9656 5.57438C29.349 2.5148 24.7556 0.834276 20.0071 0.833374H20.0005Z"
+                                            fill="none" />
+                                    </svg>
+                                    <!-- End Github Icon -->
+                                </div>
+                                <div class="inline-flex flex-col space-y-3 font-open-sans">
+                                    <div class="text-xl font-bold text-primary">Github</div>
+                                    <div class="break-words text-quaternary">
+                                        https://github.com/Photis14
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <!-- End Github Card -->
+
+                        <!-- Linked InCard -->
+                        <a href="https://linkedin.com/in/johnphotis" target="_blank"
+                            class="group col-span-2 rounded-xl bg-quinary py-10 px-6 hover:bg-senary/10 lg:col-span-1 lg:py-12">
+                            <div class="flex flex-col gap-8">
+                                <div
+                                    class="inline-flex h-20 w-20 flex-none items-center justify-center rounded-full bg-quaternary">
+                                    <!-- LinkedIn Icon -->
+                                    <svg class="h-10 w-10" viewBox="0 0 40 40" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_228_43040)">
+                                            <path
+                                                d="M37.0391 0H2.95312C1.32031 0 0 1.28906 0 2.88281V37.1094C0 38.7031 1.32031 40 2.95312 40H37.0391C38.6719 40 40 38.7031 40 37.1172V2.88281C40 1.28906 38.6719 0 37.0391 0ZM11.8672 34.0859H5.92969V14.9922H11.8672V34.0859ZM8.89844 12.3906C6.99219 12.3906 5.45312 10.8516 5.45312 8.95312C5.45312 7.05469 6.99219 5.51562 8.89844 5.51562C10.7969 5.51562 12.3359 7.05469 12.3359 8.95312C12.3359 10.8438 10.7969 12.3906 8.89844 12.3906ZM34.0859 34.0859H28.1562V24.8047C28.1562 22.5938 28.1172 19.7422 25.0703 19.7422C21.9844 19.7422 21.5156 22.1562 21.5156 24.6484V34.0859H15.5938V14.9922H21.2812V17.6016H21.3594C22.1484 16.1016 24.0859 14.5156 26.9688 14.5156C32.9766 14.5156 34.0859 18.4688 34.0859 23.6094V34.0859Z"
+                                                class="fill-primary group-hover:fill-secondary" fill="none" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_228_43040">
+                                                <rect width="40" height="40"
+                                                    class="fill-primary group-hover:fill-secondary" fill="none" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+
+                                    <!-- End LinkedIn Icon -->
+                                </div>
+                                <div class="inline-flex flex-col space-y-3 font-open-sans">
+                                    <div class="text-xl font-bold text-primary">LinkedIn</div>
+                                    <div class="break-words text-quaternary">
+                                        https://linkedin.com/johnphotis
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <!-- End LinkedIn Card -->
+
+                        <!-- Email Card -->
+                        <a href="mailto:johnphotis144@gmail.com" target="_blank"
+                            class="group col-span-2 rounded-xl bg-quinary py-10 px-6 hover:bg-senary/10 lg:col-span-1 lg:py-12">
+                            <div class="flex flex-col gap-8">
+                                <div
+                                    class="inline-flex h-20 w-20 flex-none items-center justify-center rounded-full bg-quaternary">
+                                    <!-- Email Icon -->
+                                    <svg class="h-10 w-10" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path class="fill-primary group-hover:fill-secondary"
+                                            d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.726v15.439h24v-15.439l-12 9.726z"
+                                            fill="none" />
+                                    </svg>
+
+                                    <!-- End Email Icon -->
+                                </div>
+                                <div class="inline-flex flex-col space-y-3 font-open-sans">
+                                    <div class="text-xl font-bold text-primary">Email</div>
+                                    <div class="break-words text-quaternary">
+                                        johnphotis144@gmail.com
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <!-- End Twitter card -->
+                    </div>
+                    <!-- End Social Card -->
+               
+               
+               
+               
+               
+                </div>
+                <div class="flex-1">
+                    <img src="./assets/img/contact/person.png" alt="Peter LIoyd" />
+                </div>
+            </div>
+        </section>
+        <!-- Section Four -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative mx-auto my-20 h-full w-full">
+        <div class="flex justify-center">
+            <span class="font-open-sans text-xl text-primary text-quaternary before:content-['©']">
+                John Photis 2023
+            </span>
+        </div>
+    </footer>
+    <!-- End Footer -->
+</body>
+
+<!-- Custom Javascript -->
+<script src="./assets/custom/js/script.js"></script>
+
+<script>
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+</script>
+
+
+</html>
