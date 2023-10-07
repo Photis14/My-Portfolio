@@ -141,7 +141,7 @@ class="mx-auto h-auto px-6 py-12 text-primary sm:max-w-4xl sm:py-24 md:max-w-4xl
 
     <!-- Full Stack Description -->
     <p class="font-open-sans text-xl leading-loose text-tertiary mb-6">
-        A Lorenz curve is a graphical representation commonly used in economics to depict income or wealth inequality within a given population. It is constructed by sorting individuals or households by income or wealth from lowest to highest and then plotting the cumulative share of income or wealth on the y-axis against the cumulative percentage of the population on the x-axis. The Lorenz curve typically starts at the origin, indicating that the poorest individuals have the smallest share of income or wealth. As it curves upwards, it illustrates how the distribution becomes more unequal as it deviates from the perfect equality line (a diagonal line from the origin to the top-right corner). The greater the curvature away from this line, the more pronounced the income or wealth inequality in the population. The Lorenz curve is a vital tool for analyzing and visualizing disparities in income or wealth distribution, helping policymakers and researchers understand the extent of economic inequality within a society.
+        The Lorenz curve displays economic inequality by plotting cumulative wealth against the population percentage. Its deviation from a straight diagonal line represents the level of inequality; the bigger the gap, the higher the inequality. This tool aids in understanding economic disparities.
 
 
 
@@ -166,10 +166,7 @@ class="mx-auto h-auto px-6 py-12 text-primary sm:max-w-4xl sm:py-24 md:max-w-4xl
     <div class="flex flex-wrap gap-6">
         <div class="flex-1">
             <p class="break-words font-open-sans text-xl leading-loose text-tertiary mb-4">
-                In this project, the individual utilized NumPy and matplotlib to generate a Lorenz curve for the population data encompassing over 200 countries and territories in 2010.
-The Lorenz curve portrays the contribution of the lowest x "entities" (in this case, countries) to the collective "wealth" (population). To clarify, y(1) signifies the contribution of the smallest country, y(2) signifies the contribution of the two smallest countries, and y(N) symbolizes the total contribution, equating to either 1.0 or 100%.
-Normalization was applied to both the X and Y dimensions, ranging from 0.0 to 1.0, and this was accomplished without the use of loops or non-array arithmetic operations. The outcome featured axes labels and a title and was saved as "population-lorenz.png" at a resolution of 200dpi.
-The entire process was executed through an autonomous Python program that extracted data from the provided "pop2010.npy" file and generated the PNG file without any human intervention.
+                In this project, NumPy and matplotlib were used to create a Lorenz curve from 2010 population data of over 200 countries. The curve illustrates how the smallest x countries contribute to total population. For instance, y(1) represents the smallest country, y(2) the two smallest, and y(N) the entire set. Both X and Y dimensions were normalized between 0.0 and 1.0 using array operations. The finalized graph, labeled and titled, was saved as "population-lorenz.png" with 200dpi resolution. The process was automated, taking data from "pop2010.npy" and producing the PNG without manual input.
             </p>
             <a href="https://github.com/Photis14/Lorenz-curve" target="_blank" rel="noopener noreferrer">
                 <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-8 rounded-full">

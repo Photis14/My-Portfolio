@@ -162,7 +162,7 @@ class="mx-auto h-auto px-6 py-12 text-primary sm:max-w-4xl sm:py-24 md:max-w-4xl
     <div class="flex flex-wrap gap-6">
         <div class="flex-1">
             <p class="break-words font-open-sans text-xl leading-loose text-tertiary mb-4">
-                The program loads the JSON data from the file and selects a small subset for practicing. The final run of the program includes all reviews. A JSON reader is used. The program extracts all review texts and star ratings. Each review is broken into individual words using the Natural Language Toolkit (NLTK). The program lemmatizes the words. Stop words and words that are not in the words corpus are filtered out. For each lemma, the program calculates its average star rating. If a lemma is used in fewer than 10 reviews, it is discarded. The 500 most negative and 500 most positive lemmas and their respective sentiment levels are saved in a two-column CSV file, sorted in descending order of sentiment levels. The program uses a CSV writer to save the file.
+                The program loads a JSON file, initially working with a subset before processing all reviews. It extracts review texts and ratings, then breaks down reviews into words using NLTK. Words are lemmatized, filtered for stop words and those outside the corpus. The program calculates the average rating for each lemma, discarding those in fewer than 10 reviews. The top 500 negative and positive lemmas, ranked by sentiment, are saved to a CSV using a CSV writer.
             </p>
             <a href="https://github.com/Photis14/Sentiment-Analysis" target="_blank" rel="noopener noreferrer">
                 <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-8 rounded-full">

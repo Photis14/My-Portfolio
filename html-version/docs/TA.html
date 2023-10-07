@@ -141,7 +141,7 @@ class="mx-auto h-auto px-6 py-12 text-primary sm:max-w-4xl sm:py-24 md:max-w-4xl
 
     <!-- Full Stack Description -->
     <p class="font-open-sans text-xl leading-loose text-tertiary mb-6">
-        This program takes a pickled Pandas dataframe of tweets posted by select Suffolk university students from 2020-01-01 to 2020-07-31 and finds the twenty most frequently used hashtags and hashtag-like words for each month. Hashtag-like words are words that equal one of the hashtags, less the # sign. The program counts the hashtags and the matching hashtag-like words together and performs case-insensitive counting.
+        This program analyzes a pickled Pandas dataframe of tweets from select Suffolk University students between 2020-01-01 and 2020-07-31. It identifies the top 20 hashtags and similar words monthly, combining counts for words matching hashtags without the '#' and ignoring case differences.
     </p>
 
     <!-- Tools & Frameworks -->
@@ -162,7 +162,7 @@ class="mx-auto h-auto px-6 py-12 text-primary sm:max-w-4xl sm:py-24 md:max-w-4xl
     <div class="flex flex-wrap gap-6">
         <div class="flex-1">
             <p class="break-words font-open-sans text-xl leading-loose text-tertiary mb-4">
-                This project analyzes and processes tweet data to identify and count the usage of hashtags. Using the pandas library, the gethashtags function extracts all hashtags from the tweets, both from a dedicated "hashtags" column and by scanning the tweet text directly. The getdatabym function filters the dataset to only include tweets from a specified month. The main execution reads the raw data from a pickle file specified by the user through a command-line argument. For each month in the range of 1 through 7, it processes the data, counting hashtag occurrences. The hashtags are then sorted by their frequency, and the top 20 for each month are saved to a CSV file with the same name as the input pickle file.
+                This project processes tweet data to count hashtag usage using the pandas library. The gethashtags function retrieves hashtags from both a dedicated column and the tweet text, while getdatabym filters tweets for a given month. The main script reads data from a user-specified pickle file, processes hashtag counts for months 1-7, sorts them by frequency, and saves the top 20 monthly hashtags to a CSV named after the input file.
             </p>
             <a href="https://github.com/Photis14/Tweet-Analysis" target="_blank" rel="noopener noreferrer">
                 <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-8 rounded-full">
